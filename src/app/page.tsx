@@ -22,9 +22,11 @@ export const metadata: Metadata = {
     description: siteSeo.openGraphDescription,
     type: "website",
     locale: siteSeo.locale,
+    url: `${siteSeo.siteUrl}/`,
   },
+  // 홈 표준 URL — Google 중복(/home 등) 정리용
   alternates: {
-    canonical: "/",
+    canonical: `${siteSeo.siteUrl}/`,
   },
 };
 

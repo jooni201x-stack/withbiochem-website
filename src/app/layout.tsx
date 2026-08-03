@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://withbiochem.com"),
+  // 상대 canonical 경로를 https://www.withbiochem.com/... 로 해석
+  metadataBase: new URL(siteSeo.siteUrl),
   title: {
     default: siteSeo.titleDefault,
     template: `%s | ${companyInfo.nameKo}`,
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     siteName: siteSeo.siteName,
     title: siteSeo.openGraphTitle,
     description: siteSeo.openGraphDescription,
+    url: siteSeo.siteUrl,
   },
   twitter: {
     card: "summary_large_image",
@@ -45,9 +47,7 @@ export const metadata: Metadata = {
   verification: {
     google: "LkwS5QBPhz4_x_wAMnJWW71u5KOWtPk1KlrtgqDiT5A",
   },
-  alternates: {
-    canonical: "/",
-  },
+  // 페이지별 canonical만 사용 (레이아웃 전역 "/" 지정 시 하위 페이지 혼선 방지)
 };
 
 export default function RootLayout({

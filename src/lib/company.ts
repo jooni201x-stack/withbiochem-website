@@ -12,6 +12,8 @@ export const companyInfo = {
 } as const;
 
 export const siteSeo = {
+  /** 사이트 표준 호스트 (canonical / Open Graph 기준) */
+  siteUrl: "https://www.withbiochem.com",
   siteName: "위드바이오캠 | WithBioChem",
   titleDefault:
     "위드바이오캠 | 화장품 펩타이드 원료 · 펩타이드 제조 · 맞춤 합성",
