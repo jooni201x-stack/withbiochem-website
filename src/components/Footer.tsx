@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CONTACT_EMAIL, MAILTO_INQUIRY } from "@/lib/mailto";
+import { companyInfo } from "@/lib/company";
 
 export default function Footer() {
   return (
@@ -17,8 +18,11 @@ export default function Footer() {
             <p className="text-lg font-bold tracking-tight text-navy">
               WITH<span className="text-blue">BIOCHEM</span>
             </p>
+            <p className="mt-1 text-sm font-semibold text-navy/80">
+              {companyInfo.displayName}
+            </p>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-500">
-              Your Partner in Peptide Innovation
+              {companyInfo.tagline}
               <br />
               국내 합성 프리미엄 화장품 펩타이드 원료
             </p>
@@ -65,9 +69,21 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div>
+            <div className="max-w-xs">
               <p className="font-semibold text-navy">Contact</p>
               <ul className="mt-2 space-y-1.5 text-slate-500">
+                <li className="font-medium text-navy/70">
+                  {companyInfo.displayName}
+                </li>
+                <li className="leading-relaxed">{companyInfo.address}</li>
+                <li>
+                  <a
+                    href={companyInfo.phoneHref}
+                    className="hover:text-blue"
+                  >
+                    {companyInfo.phone}
+                  </a>
+                </li>
                 <li>
                   <a href={MAILTO_INQUIRY} className="hover:text-blue">
                     {CONTACT_EMAIL}
@@ -88,7 +104,8 @@ export default function Footer() {
             목적의 예시이며 해당 브랜드 제품이 아닙니다.
           </p>
           <p className="mt-4 text-xs text-slate-400">
-            © {new Date().getFullYear()} WITHBIOCHEM. All rights reserved.
+            © {new Date().getFullYear()} {companyInfo.displayName}. All rights
+            reserved.
           </p>
         </div>
       </div>

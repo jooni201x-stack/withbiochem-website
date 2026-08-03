@@ -12,10 +12,13 @@ import {
   Package,
   FileCheck2,
   Download,
+  MapPin,
+  Phone,
 } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { siteImages } from "@/lib/images";
 import { CONTACT_EMAIL, MAILTO_INQUIRY, buildMailtoHref } from "@/lib/mailto";
+import { companyInfo } from "@/lib/company";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -88,13 +91,36 @@ ${message}
                 COMPANY
               </p>
               <h3 className="mt-1 text-lg font-bold text-navy">
-                WithBioChem (위드바이오캠)
+                {companyInfo.displayName}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-500">
                 Cosmetic Peptide Raw Materials
                 <br />
                 B2B / ODM Supply
               </p>
+              <div className="mt-4 space-y-3 border-t border-border pt-4">
+                <div className="flex gap-2.5 text-sm leading-relaxed text-slate-600">
+                  <MapPin
+                    size={16}
+                    className="mt-0.5 shrink-0 text-blue"
+                  />
+                  <span>{companyInfo.address}</span>
+                </div>
+                <a
+                  href={companyInfo.phoneHref}
+                  className="flex items-center gap-2.5 text-sm font-semibold text-navy transition-colors hover:text-blue"
+                >
+                  <Phone size={16} className="shrink-0 text-blue" />
+                  {companyInfo.phone}
+                </a>
+                <a
+                  href={MAILTO_INQUIRY}
+                  className="flex items-center gap-2.5 text-sm font-semibold text-navy transition-colors hover:text-blue"
+                >
+                  <Mail size={16} className="shrink-0 text-blue" />
+                  {CONTACT_EMAIL}
+                </a>
+              </div>
             </div>
 
             <a

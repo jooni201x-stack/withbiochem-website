@@ -37,14 +37,43 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   if (slug === "custom-synthesis") {
     return {
-      title: "Custom Synthesis · 맞춤 합성 서비스 | WITHBIOCHEM",
+      title: "맞춤 합성 · Custom Synthesis",
+      description:
+        "위드바이오캠 맞춤 합성(Custom Synthesis) 서비스. 유기화합물·펩타이드 제조, 공정 개선·원가 절감, 고순도 화장품 펩타이드 원료 Research Use Only.",
     };
   }
   const product = getProductBySlug(slug);
-  if (!product) return { title: "Product | WITHBIOCHEM" };
+  if (!product) {
+    return {
+      title: "제품 안내",
+      description:
+        "위드바이오캠 화장품 펩타이드 원료 및 펩타이드 제조 제품 안내.",
+    };
+  }
+  const title = `${product.name} · 화장품 펩타이드 원료`;
+  const description = `${product.name} (${product.brand}) — 위드바이오캠 화장품 펩타이드 원료. ${product.summary} 펩타이드 제조 · 맞춤 합성 · B2B 공급.`;
   return {
-    title: `${product.name} | WITHBIOCHEM`,
-    description: product.summary,
+    title,
+    description,
+    keywords: [
+      product.name,
+      product.brand,
+      product.inci,
+      "위드바이오캠",
+      "화장품 펩타이드 원료",
+      "펩타이드 제조",
+      "맞춤 합성",
+      product.tag,
+    ],
+    openGraph: {
+      title: `${product.name} | 위드바이오캠`,
+      description,
+      type: "website",
+      locale: "ko_KR",
+    },
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    },
   };
 }
 

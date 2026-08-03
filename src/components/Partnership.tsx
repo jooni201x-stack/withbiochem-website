@@ -83,13 +83,6 @@ export default function Partnership() {
           </div>
         </div>
       </motion.div>
-
-      <p className="mx-auto mt-8 max-w-xl px-5 text-center text-xs leading-relaxed text-slate-400 sm:px-8">
-        로고 파일:{" "}
-        <code className="rounded bg-white px-1.5 py-0.5 text-[11px] text-slate-500">
-          public/IMG_JOON/partner/
-        </code>
-      </p>
     </section>
   );
 }

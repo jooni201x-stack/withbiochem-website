@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { companyInfo, siteSeo } from "@/lib/company";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,29 +14,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WITHBIOCHEM | Custom Organic Synthesis & Peptide Manufacturing",
-  description:
-    "위드바이오캠 — 맞춤 유기합성 · 펩타이드 제조 · 화장품 기능성 원료. LPPS 기반 고순도 합성, COA 제공, mg→kg Scale-up, B2B/ODM.",
-  keywords: [
-    "WITHBIOCHEM",
-    "위드바이오캠",
-    "맞춤 유기합성",
-    "펩타이드",
-    "LPPS",
-    "화장품 원료",
-    "클릭 화학",
-    "아지도",
-    "Palmitoyl Tripeptide-5",
-    "GHK-Cu",
-    "B2B",
-    "국내 합성",
-  ],
+  metadataBase: new URL("https://withbiochem.com"),
+  title: {
+    default: siteSeo.titleDefault,
+    template: `%s | ${companyInfo.nameKo}`,
+  },
+  description: siteSeo.description,
+  keywords: [...siteSeo.keywords],
+  authors: [{ name: companyInfo.displayName }],
+  creator: companyInfo.displayName,
+  publisher: companyInfo.displayName,
+  applicationName: siteSeo.siteName,
+  category: "Biotechnology",
   openGraph: {
-    title: "WITHBIOCHEM | Custom Synthesis & Peptide Manufacturing",
-    description:
-      "Research-driven Custom Synthesis Partner. 고순도 · LPPS · COA · mg→kg Scale-up",
     type: "website",
-    locale: "ko_KR",
+    locale: siteSeo.locale,
+    siteName: siteSeo.siteName,
+    title: siteSeo.openGraphTitle,
+    description: siteSeo.openGraphDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteSeo.openGraphTitle,
+    description: siteSeo.openGraphDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 

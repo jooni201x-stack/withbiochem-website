@@ -1,5 +1,7 @@
+import { companyInfo } from "@/lib/company";
+
 /** 문의 이메일 */
-export const CONTACT_EMAIL = "kwon@withbiochem.com";
+export const CONTACT_EMAIL = companyInfo.email;
 
 const DEFAULT_SUBJECT = "[위드바이오캠] 제품/샘플 문의";
 
