@@ -18,7 +18,7 @@ export const siteSeo = {
   titleDefault:
     "위드바이오캠 | 화장품 펩타이드 원료 · 펩타이드 제조 · 맞춤 합성",
   description:
-    "위드바이오캠(WithBioChem) — 국내 펩타이드 제조 및 화장품 펩타이드 원료 공급. LPPS 용액상 합성, 맞춤 합성(Custom Synthesis), 고순도 COA, mg→kg Scale-up, B2B/ODM.",
+    "위드바이오캠 | 국내 펩타이드 제조·화장품 원료 공급. LPPS 고순도 합성, 맞춤 합성, B2B 안정 공급",
   keywords: [
     "위드바이오캠",
     "WithBioChem",
