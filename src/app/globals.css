@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --navy: #0b2b5b;
+  --navy-deep: #071f42;
+  --blue: #1a6bb5;
+  --blue-light: #3b8fd4;
+  --blue-soft: #e8f2fb;
+  --slate: #64748b;
+  --border: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-blue-soft: var(--blue-soft);
+  --color-slate: var(--slate);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 한글: 단어(어절) 단위로 끊고, 글자 중간 강제 분절 방지 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+/* 제목: 줄 길이를 고르게, 어절 중간 끊김 최소화 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  hyphens: none;
+  text-wrap: balance;
+}
+
+/* 본문·목록: 읽기 편한 줄바꿈 (고아 줄 완화) */
+p,
+li,
+dd,
+dt,
+td,
+th,
+blockquote,
+label {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  hyphens: none;
+  text-wrap: pretty;
+}
+
+/*
+ * 제품명·영문 고유명사: 공백에서만 줄바꿈 선호.
+ * 하이픈(예: Tripeptide-1, GHK-Cu) 직후 어색한 분절을 줄입니다.
+ */
+.product-name,
+.text-break-keep {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  hyphens: none;
+  -webkit-hyphens: none;
+  /* 가능하면 균형 잡힌 2줄 배치 */
+  text-wrap: balance;
+}
+
+/* 배지·칩 안 짧은 라벨 */
+.badge-text,
+[data-text="chip"] {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* truncate 유틸은 한 줄 말줄임 유지 (레이아웃용) */
+.truncate {
+  word-break: normal;
+  overflow-wrap: normal;
+  text-wrap: nowrap;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--blue) 25%, transparent);
+  color: var(--navy-deep);
+}
+
+/* Subtle hexagonal lab pattern */
+.hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='52' viewBox='0 0 60 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%231a6bb5' stroke-opacity='0.06' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 52px;
+}
+
+.gradient-radial {
+  background:
+    radial-gradient(ellipse 80% 50% at 70% 20%, rgba(59, 143, 212, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(11, 43, 91, 0.06), transparent 50%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Infinite logo marquee (partnership) */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  /* 5~6개 로고용 — 너무 빠르지 않게 */
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 32s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
+}
+
