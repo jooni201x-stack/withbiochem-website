@@ -46,6 +46,10 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "LkwS5QBPhz4_x_wAMnJWW71u5KOWtPk1KlrtgqDiT5A",
+    other: {
+      "naver-site-verification":
+        "4fe9e1b152c143633fa284ce435c4080005ac06e",
+    },
   },
   // 페이지별 canonical만 사용 (레이아웃 전역 "/" 지정 시 하위 페이지 혼선 방지)
 };
