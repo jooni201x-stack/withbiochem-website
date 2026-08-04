@@ -29,6 +29,8 @@ public/IMG_JOON/
 ├── contact/
 │   ├── image-1.jpg
 │   └── image-2.jpg
+├── logo/
+│   └── logo_1.png
 └── partner/
     ├── bigsell.png
     ├── daelim univ.png
@@ -55,6 +57,7 @@ public/IMG_JOON/
 | `service/` | `product-5.jpg` | Custom Synthesis (카드·상세·전용 페이지) |
 | `strengths/` | `banner.jpg` | 공급 강점 배너 |
 | `contact/` | `image-1.jpg`, `image-2.jpg` | 문의 섹션 |
+| `logo/` | `logo_1.png` | 헤더·푸터 사이트 로고 |
 | `partner/` | 아래 로고 파일들 | 파트너십 마퀴 |
 
 ---

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CONTACT_EMAIL, MAILTO_INQUIRY } from "@/lib/mailto";
 import { companyInfo } from "@/lib/company";
+import BrandLogo from "./BrandLogo";
 
 export default function Footer() {
   return (
@@ -15,10 +16,10 @@ export default function Footer() {
           className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between"
         >
           <div>
-            <p className="text-lg font-bold tracking-tight text-navy">
-              WITH<span className="text-blue">BIOCHEM</span>
-            </p>
-            <p className="mt-1 text-sm font-semibold text-navy/80">
+            <a href="/" className="inline-flex" aria-label="위드바이오캠 홈">
+              <BrandLogo size="md" />
+            </a>
+            <p className="mt-2 text-sm font-semibold text-navy/80">
               {companyInfo.displayName}
             </p>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-500">

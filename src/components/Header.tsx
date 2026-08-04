@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import BrandLogo from "./BrandLogo";
 
 const navItems = [
   { href: "/#about", label: "회사 소개" },
@@ -43,11 +44,12 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
-        <a href="/" className="group flex items-center gap-2">
-          <span className="text-[1.05rem] font-bold tracking-tight text-navy sm:text-lg">
-            WITH
-            <span className="text-blue">BIOCHEM</span>
-          </span>
+        <a
+          href="/"
+          className="group flex shrink-0 items-center"
+          aria-label="위드바이오캠 홈"
+        >
+          <BrandLogo size="sm" priority />
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">

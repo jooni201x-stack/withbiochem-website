@@ -11,6 +11,9 @@
 const IMG = "/IMG_JOON";
 
 export const siteImages = {
+  /** 사이트 로고 — logo/logo_1.png */
+  logo: `${IMG}/logo/logo_1.png`,
+
   /** 메인 히어로 영상 — home/hero.mp4 */
   heroVideo: `${IMG}/home/hero.mp4`,
 
