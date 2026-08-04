@@ -207,7 +207,7 @@ ${message}
             </div>
           </motion.div>
 
-          {/* Sticky contact form — follows scroll */}
+          {/* Contact form */}
           <div className="lg:col-span-3">
             <motion.form
               onSubmit={handleSubmit}
@@ -215,20 +215,15 @@ ${message}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.08 }}
-              className="sticky top-24 z-20 rounded-2xl border border-border bg-white p-6 shadow-lg shadow-navy/5 ring-1 ring-black/[0.03] sm:p-8"
+              className="rounded-2xl border border-border bg-white p-6 shadow-lg shadow-navy/5 ring-1 ring-black/[0.03] sm:p-8"
             >
-              <div className="mb-5 flex items-center justify-between gap-3 border-b border-border pb-4">
-                <div>
-                  <p className="text-xs font-semibold tracking-widest text-blue">
-                    INQUIRY FORM
-                  </p>
-                  <h3 className="mt-1 text-lg font-bold text-navy">
-                    빠른 상담 요청
-                  </h3>
-                </div>
-                <span className="hidden rounded-full bg-blue-soft px-3 py-1 text-[11px] font-semibold text-blue sm:inline-block">
-                  스크롤 시 고정
-                </span>
+              <div className="mb-5 border-b border-border pb-4">
+                <p className="text-xs font-semibold tracking-widest text-blue">
+                  INQUIRY FORM
+                </p>
+                <h3 className="mt-1 text-lg font-bold text-navy">
+                  빠른 상담 요청
+                </h3>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">

@@ -11,7 +11,6 @@ const navItems = [
   { href: "/#technology", label: "핵심 기술" },
   { href: "/#products", label: "주요 제품" },
   { href: "/#process", label: "의뢰 절차" },
-  { href: "/#contact", label: "문의" },
 ];
 
 export default function Header() {
