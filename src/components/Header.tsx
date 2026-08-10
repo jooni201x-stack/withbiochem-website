@@ -20,6 +20,9 @@ const productLinks = products.map((p) => ({
   code: p.code,
 }));
 
+const linkClass =
+  "rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-blue-soft hover:text-navy lg:px-4";
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -39,7 +42,6 @@ export default function Header() {
     };
   }, [open]);
 
-  // 모바일 메뉴 닫을 때 서브메뉴도 접기
   useEffect(() => {
     if (!open) setMobileProductsOpen(false);
   }, [open]);
@@ -65,35 +67,48 @@ export default function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 md:flex lg:gap-1">
+          {/* WHY — 유일한 옐로우 강조 메뉴 */}
+          <a
+            href="/#why-us"
+            className="mr-1 inline-flex items-center rounded-full bg-[#FEE500] px-3.5 py-2 text-[13px] font-bold leading-tight text-[#191600] shadow-sm ring-1 ring-black/5 transition-all hover:scale-[1.02] hover:bg-[#ffe566] hover:shadow-md lg:px-4 lg:text-sm"
+          >
+            왜 위드바이오캠인가
+          </a>
+
           {navItems.slice(0, 3).map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-blue-soft hover:text-navy"
-            >
+            <a key={item.href} href={item.href} className={linkClass}>
               {item.label}
             </a>
           ))}
 
-          {/* 주요 제품 — hover 드롭다운 */}
+          {/* 주요 제품 — 드롭다운 힌트 강화 (옐로우 소포인트) */}
           <div className="group relative">
             <a
               href="/#products"
-              className="inline-flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-blue-soft hover:text-navy group-hover:bg-blue-soft group-hover:text-navy"
+              className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-[#FEE500]/25 group-hover:bg-[#FEE500]/25 lg:px-4"
+              aria-haspopup="menu"
             >
               주요 제품
-              <ChevronDown
-                size={14}
-                className="opacity-70 transition-transform duration-200 group-hover:rotate-180"
-              />
+              <span className="inline-flex items-center justify-center rounded-md bg-[#FEE500] px-1 py-0.5 shadow-sm ring-1 ring-black/5 transition-all group-hover:scale-105 group-hover:shadow-md">
+                <ChevronDown
+                  size={14}
+                  strokeWidth={3}
+                  className="text-[#191600] transition-transform duration-200 group-hover:rotate-180"
+                  aria-hidden
+                />
+              </span>
             </a>
             {/* 호버 브릿지 + 패널 */}
             <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="overflow-hidden rounded-2xl border border-border bg-white py-2 shadow-xl shadow-navy/10 ring-1 ring-black/[0.03]">
+              <div
+                className="overflow-hidden rounded-2xl border border-border bg-white py-2 shadow-xl shadow-navy/10 ring-1 ring-black/[0.03]"
+                role="menu"
+              >
                 <a
                   href="/#products"
                   className="block border-b border-border/80 px-4 py-2.5 text-xs font-semibold tracking-wide text-blue hover:bg-blue-soft/50"
+                  role="menuitem"
                 >
                   전체 제품 보기
                 </a>
@@ -102,11 +117,12 @@ export default function Header() {
                     key={p.href}
                     href={p.href}
                     className="flex items-start gap-2.5 px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-blue-soft hover:text-navy"
+                    role="menuitem"
                   >
                     <span className="mt-0.5 shrink-0 rounded bg-navy/5 px-1.5 py-0.5 text-[10px] font-bold text-navy">
                       {p.code}
                     </span>
-                    <span className="product-name leading-snug font-medium">
+                    <span className="product-name font-medium leading-snug">
                       {p.label}
                     </span>
                   </a>
@@ -116,20 +132,16 @@ export default function Header() {
           </div>
 
           {navItems.slice(3).map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-blue-soft hover:text-navy"
-            >
+            <a key={item.href} href={item.href} className={linkClass}>
               {item.label}
             </a>
           ))}
 
           <a
             href="/#contact"
-            className="ml-2 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue hover:shadow-md"
+            className="ml-1.5 rounded-full bg-navy px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-blue hover:shadow-md lg:ml-2 lg:px-5"
           >
-            상담 문의
+            샘플 · 공급 문의
           </a>
         </nav>
 
@@ -153,7 +165,16 @@ export default function Header() {
             transition={{ duration: 0.28 }}
             className="overflow-hidden border-t border-border bg-white md:hidden"
           >
-            <nav className="flex max-h-[min(70vh,28rem)] flex-col gap-1 overflow-y-auto px-5 py-4">
+            <nav className="flex max-h-[min(75vh,32rem)] flex-col gap-1 overflow-y-auto px-5 py-4">
+              {/* WHY — 모바일 옐로우 강조 */}
+              <a
+                href="/#why-us"
+                onClick={() => setOpen(false)}
+                className="mb-1 rounded-xl bg-[#FEE500] px-4 py-3.5 text-center text-base font-bold text-[#191600] shadow-sm ring-1 ring-black/5"
+              >
+                왜 위드바이오캠인가
+              </a>
+
               {navItems.slice(0, 3).map((item, i) => (
                 <motion.a
                   key={item.href}
@@ -174,15 +195,23 @@ export default function Header() {
                   type="button"
                   onClick={() => setMobileProductsOpen((v) => !v)}
                   aria-expanded={mobileProductsOpen}
-                  className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-navy hover:bg-blue-soft"
+                  className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-semibold text-navy hover:bg-[#FEE500]/20"
                 >
-                  주요 제품
-                  <ChevronDown
-                    size={18}
-                    className={`text-slate-400 transition-transform duration-200 ${
-                      mobileProductsOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                  <span className="inline-flex items-center gap-2">
+                    주요 제품
+                    <span className="rounded-md bg-[#FEE500] px-1.5 py-0.5 text-[10px] font-bold text-[#191600] shadow-sm">
+                      {mobileProductsOpen ? "접기" : "펼침"}
+                    </span>
+                  </span>
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[#FEE500] shadow-sm ring-1 ring-black/5">
+                    <ChevronDown
+                      size={18}
+                      strokeWidth={2.75}
+                      className={`text-[#191600] transition-transform duration-200 ${
+                        mobileProductsOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </span>
                 </button>
                 <AnimatePresence initial={false}>
                   {mobileProductsOpen && (
@@ -241,7 +270,7 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-xl bg-navy px-4 py-3 text-center text-base font-semibold text-white"
               >
-                상담 문의
+                샘플 · 공급 문의
               </a>
             </nav>
           </motion.div>

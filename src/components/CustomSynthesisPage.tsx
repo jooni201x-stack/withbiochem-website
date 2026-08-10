@@ -19,6 +19,7 @@ import {
   Sparkles,
   Wrench,
 } from "lucide-react";
+import ProductDetailNav from "@/components/ProductDetailNav";
 import { siteImages } from "@/lib/images";
 import { CONTACT_EMAIL, MAILTO_INQUIRY } from "@/lib/mailto";
 
@@ -249,6 +250,9 @@ export default function CustomSynthesisPage() {
           </div>
         </div>
       </section>
+
+      {/* 제품 간 상세 바로가기 */}
+      <ProductDetailNav currentSlug="custom-synthesis" />
 
       {/* Service intro */}
       <section className="bg-white py-16 sm:py-20">

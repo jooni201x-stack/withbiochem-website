@@ -56,11 +56,26 @@ ${message}
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="CONTACT"
-          title="문의하기"
-          subtitle="샘플, 견적, 맞춤 합성 — B2B 파트너십을 위한 상담을 남겨 주세요."
+          title="샘플 · 공급 문의"
+          subtitle="샘플, 단가, 납기, 맞춤 합성 — B2B 공급 상담을 남겨 주세요."
         />
 
-        <div className="mt-12 grid items-start gap-8 lg:grid-cols-5">
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-5 rounded-2xl border border-[#FEE500]/60 bg-[#FEE500] px-4 py-3.5 shadow-sm ring-1 ring-black/5 sm:px-5 sm:py-4"
+        >
+          <p className="text-sm font-bold text-[#191600] sm:text-[15px]">
+            견적 비교 환영
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-[#191600]/80 sm:text-sm">
+            동일 규격 기준 더 낮은 정식 견적이 있으면 말씀해 주세요. 순도보장 ·
+            최저가 납품 보장제를 운영합니다.
+          </p>
+        </motion.div>
+
+        <div className="mt-10 grid items-start gap-8 lg:grid-cols-5">
           {/* Left column — scrolls normally */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -222,7 +237,7 @@ ${message}
                   INQUIRY FORM
                 </p>
                 <h3 className="mt-1 text-lg font-bold text-navy">
-                  빠른 상담 요청
+                  샘플 · 공급 상담
                 </h3>
               </div>
 

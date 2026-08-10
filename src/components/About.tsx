@@ -78,7 +78,7 @@ export default function About() {
               </span>
               으로 구성된{" "}
               <span className="font-semibold text-navy">
-                펩타이드 및 유기 합성 전문 기업
+                화장품용 고순도 펩타이드 국내 합성·공급 B2B 원료 파트너
               </span>
               입니다. 맞춤형 유기합성(Custom Organic Synthesis)과 펩타이드
               제조를 중심으로, 수입에 의존하던 화장품·의약품 활성 원료를

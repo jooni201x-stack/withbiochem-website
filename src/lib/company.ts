@@ -9,6 +9,8 @@ export const companyInfo = {
   phone: "010-8793-9997",
   phoneHref: "tel:01087939997",
   email: "kwon@withbiochem.com",
+  /** 카카오톡 오픈채팅 — 빠른 상담 */
+  kakaoOpenChat: "https://open.kakao.com/o/sfvTefHi",
 } as const;
 
 export const siteSeo = {

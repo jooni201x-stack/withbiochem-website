@@ -96,7 +96,7 @@ export default function Technology() {
         <SectionHeading
           eyebrow="CORE TECHNOLOGIES"
           title="핵심 기술"
-          subtitle="Advanced Synthesis Technologies for Research & Industry — 용액상 펩타이드 합성으로 원가·품질·확장성을 동시에 잡습니다."
+          subtitle="레진 없는 용액상 합성(LPPS)으로 원가를 절감합니다. 이것이 중국산 대비 경쟁 단가의 근거입니다."
         />
 
         {/* LPPS comparison — 당사 기술 우위 강조 */}
@@ -116,7 +116,7 @@ export default function Technology() {
                 고체상 vs 용액상(당사) 합성 비교
               </h3>
               <p className="mt-1 text-xs font-medium text-slate-300 sm:text-sm">
-                레진 없는 용액상 합성으로 원가·품질·Scale-up을 동시에 확보합니다.
+                원가 절감 → 경쟁 단가 · 고순도 · Scale-up을 동시에 확보합니다.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">

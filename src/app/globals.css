@@ -163,9 +163,50 @@ label {
   animation-play-state: paused;
 }
 
+/* 제품 카드 CTA — 부드러운 시선 유도 (과하지 않게) */
+@keyframes cta-soft-pulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.25);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 8px 24px -4px rgba(254, 229, 0, 0.45),
+      0 0 0 3px rgba(254, 229, 0, 0.22);
+    transform: scale(1.03);
+  }
+}
+
+/* Click 뱃지 — 3초 주기 페이드 아웃 반복 강조 */
+@keyframes cta-badge-fade-out {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.cta-soft-pulse {
+  animation: cta-soft-pulse 2.8s ease-in-out infinite;
+}
+
+.cta-hint-badge {
+  animation: cta-badge-fade-out 3s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-marquee-reverse {
+    animation: none;
+  }
+
+  .cta-soft-pulse,
+  .cta-hint-badge {
     animation: none;
   }
 }

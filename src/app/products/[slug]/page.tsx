@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ProductDetailNav from "@/components/ProductDetailNav";
 import {
   getAllProductSlugs,
   getProductBySlug,
@@ -164,6 +165,9 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* 제품 간 상세 바로가기 */}
+        <ProductDetailNav currentSlug={product.slug} />
 
         {/* Content sections */}
         <section className="bg-white py-16 sm:py-20">

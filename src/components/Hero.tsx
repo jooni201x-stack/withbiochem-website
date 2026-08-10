@@ -7,7 +7,7 @@ import {
   FlaskConical,
   FileCheck2,
   ShieldCheck,
-  Handshake,
+  Truck,
 } from "lucide-react";
 import { siteImages } from "@/lib/images";
 
@@ -24,11 +24,18 @@ const fadeUp = {
   }),
 };
 
+const chips = [
+  "95%+ · COA",
+  "국내 합성 · 빠른 납품",
+  "50g부터",
+  "최저가 납품 보장제",
+];
+
 const highlights = [
-  { icon: ShieldCheck, title: "95%+ Purity", sub: "고순도 95% 이상" },
-  { icon: FileCheck2, title: "COA Provided", sub: "제품별 COA 제공" },
-  { icon: FlaskConical, title: "Domestic Synthesis", sub: "국내 합성 · 안정 공급" },
-  { icon: Handshake, title: "B2B / ODM", sub: "B2B / ODM 원료 공급" },
+  { icon: ShieldCheck, title: "95%+ Purity", sub: "고순도 · 제품별 COA" },
+  { icon: Truck, title: "Fast Domestic", sub: "국내 합성 · 빠른 납품" },
+  { icon: FlaskConical, title: "Flexible Scale", sub: "50g 소량부터 대응" },
+  { icon: FileCheck2, title: "Price Guarantee", sub: "최저가 납품 보장제" },
 ];
 
 export default function Hero() {
@@ -82,7 +89,8 @@ export default function Hero() {
               Your Trusted Partner in Custom Chemical Innovation
               <br />
               <span className="font-medium text-navy/80">
-                맞춤 유기합성 · 국내 합성 프리미엄 펩타이드 원료
+                국내 합성 고순도 화장품 펩타이드 · 중국산 대비 경쟁 단가 ·
+                통관 없이 빠른 공급
               </span>
             </motion.p>
 
@@ -93,27 +101,46 @@ export default function Hero() {
               animate="show"
               className="mt-4 max-w-xl text-sm leading-relaxed text-slate-500 sm:text-[15px]"
             >
-              연구 중심의 맞춤 합성 파트너. 고순도 품질, 빠른 공급, mg→kg
-              유연한 Scale-up.
-              <br className="hidden sm:block" />
-              펩타이드·유기합성·클릭 화학으로 고객의 혁신을 지원합니다.
+              LPPS 기술로 원가를 낮추고, 통관 없이 빠르게 공급하는 국내 합성
+              파트너. 95%+ 순도 · COA · 50g부터 유연한 공급.
             </motion.p>
 
+            {/* USP chips — compact, restrained */}
             <motion.div
               custom={4}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="mt-5 flex flex-wrap gap-2"
+            >
+              {chips.map((chip) => (
+                <span
+                  key={chip}
+                  data-text="chip"
+                  className="inline-flex items-center rounded-full border border-border bg-white/90 px-3 py-1 text-[11px] font-semibold text-slate-600 shadow-sm sm:text-xs"
+                >
+                  {chip}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              custom={5}
               variants={fadeUp}
               initial="hidden"
               animate="show"
               className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             >
               <a
-                href="/brochure.pdf"
-                download="WITHBIOCHEM_브로셔.pdf"
+                href="#contact"
                 className="group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-r from-blue to-blue-light px-8 py-4 text-base font-bold text-white shadow-xl shadow-blue/30 transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue/40"
               >
                 <span className="absolute inset-0 bg-white/20 opacity-0 transition-opacity group-hover:opacity-100" />
-                <Download size={20} className="relative shrink-0" />
-                <span className="relative">브로셔 다운로드</span>
+                <span className="relative">샘플 · 공급 문의</span>
+                <ArrowRight
+                  size={18}
+                  className="relative transition-transform group-hover:translate-x-0.5"
+                />
               </a>
               <a
                 href="#products"
@@ -126,37 +153,17 @@ export default function Hero() {
                 />
               </a>
               <a
-                href="#contact"
+                href="/brochure.pdf"
+                download="WITHBIOCHEM_브로셔.pdf"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-navy transition-all hover:border-blue/30 hover:bg-blue-soft"
               >
-                샘플 · 견적 문의
+                <Download size={16} />
+                브로셔
               </a>
-            </motion.div>
-
-            <motion.div
-              custom={5}
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium tracking-wide text-slate-500 sm:text-[13px]"
-            >
-              {[
-                "CUSTOM SYNTHESIS",
-                "PEPTIDE",
-                "COSMETIC ACTIVES",
-                "CLICK CHEMISTRY",
-              ].map((tag, i) => (
-                <span key={tag} className="flex items-center gap-2">
-                  {i > 0 && (
-                    <span className="hidden h-3 w-px bg-border sm:inline-block" />
-                  )}
-                  {tag}
-                </span>
-              ))}
             </motion.div>
           </div>
 
-          {/* Single hero video (replaces 4 image grid) */}
+          {/* Single hero video */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             animate={{ opacity: 1, x: 0 }}

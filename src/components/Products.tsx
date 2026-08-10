@@ -121,30 +121,32 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="relative scroll-mt-20 overflow-hidden py-20 sm:py-28"
+      className="relative scroll-mt-20 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy/[0.04] via-blue-soft/50 to-white" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[min(100%,720px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-blue/40 to-transparent" />
-      <div className="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-blue/15 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-1/4 h-96 w-96 rounded-full bg-navy/10 blur-3xl" />
+      {/* 다크 + 옐로우 포인트 — WHY 다음 두 번째 임팩트 구간 */}
+      <div className="pointer-events-none absolute inset-0 opacity-20 hex-pattern" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-[min(100%,720px)] -translate-x-1/2 bg-gradient-to-r from-transparent via-[#FEE500]/50 to-transparent" />
+      <div className="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-[#FEE500]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-1/4 h-96 w-96 rounded-full bg-blue/20 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="PRODUCTS & SERVICES"
             title="주요 펩타이드 서비스"
-            subtitle="5가지 핵심 서비스 — 안티에이징·재생·아이케어 원료부터 맞춤 합성까지. 카드를 클릭하면 상세 기술 자료를 확인할 수 있습니다."
+            subtitle="안티에이징·재생·아이케어 핵심 원료를 국내에서 합성·공급합니다. 중국산 대체, 소량 시험, 정기 납품까지 — 상업용 B2B 공급에 대응합니다."
+            light
           />
           <motion.p
             initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="hidden shrink-0 rounded-2xl border-2 border-blue/20 bg-white px-5 py-3 text-center shadow-sm sm:block"
+            className="hidden shrink-0 rounded-2xl border-2 border-[#FEE500]/35 bg-white/5 px-5 py-3 text-center backdrop-blur-sm sm:block"
           >
-            <span className="block text-3xl font-black tracking-tight text-navy">
+            <span className="block text-3xl font-black tracking-tight text-[#FEE500]">
               05
             </span>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-blue">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-slate-300">
               Core Services
             </span>
           </motion.p>
@@ -238,7 +240,11 @@ export default function Products() {
                       {softBreakName(p.summary)}
                     </p>
 
-                    <ul className="mt-5 flex flex-wrap gap-2">
+                    <p className="mt-3 text-xs font-semibold text-navy/80 sm:text-[13px]">
+                      <span className="text-[#b8860b]">수입 대체 · 단가 · 납기에 유리</span>
+                    </p>
+
+                    <ul className="mt-4 flex flex-wrap gap-2">
                       {p.highlights.map((h) => (
                         <li
                           key={h}
@@ -262,14 +268,19 @@ export default function Products() {
                           </p>
                         )}
                       </div>
-                      <span
-                        className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-all duration-300 ${v.cta}`}
-                      >
-                        상세 보기
-                        <ArrowUpRight
-                          size={16}
-                          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                        />
+                      <span className="relative inline-flex shrink-0 flex-col items-end gap-1">
+                        <span className="cta-hint-badge rounded-full bg-[#FEE500] px-2.5 py-0.5 text-[10px] font-extrabold tracking-wide text-[#191600] shadow-sm">
+                          Click
+                        </span>
+                        <span
+                          className={`cta-soft-pulse inline-flex items-center gap-1.5 rounded-full bg-navy px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-colors duration-300 group-hover:bg-[#0a2248]`}
+                        >
+                          상세 보기
+                          <ArrowUpRight
+                            size={16}
+                            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          />
+                        </span>
                       </span>
                     </div>
                   </div>
@@ -290,10 +301,10 @@ export default function Products() {
           >
             <Link
               href={`/products/${custom.slug}`}
-              className="group relative block overflow-hidden rounded-[1.75rem] border-[3px] border-navy bg-navy-deep shadow-[0_20px_50px_-16px_rgba(7,31,66,0.55)] transition-all duration-300 hover:-translate-y-2 hover:border-blue-light hover:shadow-[0_32px_64px_-14px_rgba(26,107,181,0.55)]"
+              className="group relative block overflow-hidden rounded-[1.75rem] border-[3px] border-white/15 bg-[#0a2248] shadow-[0_20px_50px_-16px_rgba(7,31,66,0.55)] transition-all duration-300 hover:-translate-y-2 hover:border-[#FEE500]/50 hover:shadow-[0_32px_64px_-14px_rgba(254,229,0,0.2)]"
             >
               <div
-                className="h-2 w-full bg-gradient-to-r from-blue-light via-blue to-navy"
+                className="h-2 w-full bg-gradient-to-r from-[#FEE500] via-blue to-navy"
                 aria-hidden
               />
 
@@ -347,7 +358,11 @@ export default function Products() {
                     {softBreakName(custom.summary)}
                   </p>
 
-                  <ul className="relative mt-5 flex flex-wrap gap-2">
+                  <p className="relative mt-3 text-xs font-semibold text-[#FEE500] sm:text-[13px]">
+                    수입 대체 · 단가 · 납기에 유리
+                  </p>
+
+                  <ul className="relative mt-4 flex flex-wrap gap-2">
                     {custom.highlights.map((h) => (
                       <li
                         key={h}
@@ -358,12 +373,17 @@ export default function Products() {
                     ))}
                   </ul>
 
-                  <span className="relative mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-navy shadow-xl transition-all duration-300 group-hover:bg-blue-soft group-hover:scale-[1.02]">
-                    맞춤 합성 상세 보기
-                    <ArrowUpRight
-                      size={17}
-                      className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
+                  <span className="relative mt-8 inline-flex flex-col items-start gap-1.5">
+                    <span className="cta-hint-badge rounded-full bg-[#FEE500] px-2.5 py-0.5 text-[10px] font-extrabold tracking-wide text-[#191600] shadow-sm">
+                      Click
+                    </span>
+                    <span className="cta-soft-pulse inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-navy shadow-xl transition-all duration-300 group-hover:bg-[#FEE500] group-hover:scale-[1.02]">
+                      맞춤 합성 상세 보기
+                      <ArrowUpRight
+                        size={17}
+                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      />
+                    </span>
                   </span>
                 </div>
               </div>
