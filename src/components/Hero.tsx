@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -39,6 +40,43 @@ const highlights = [
 ];
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.playsInline = true;
+
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // Autoplay blocked (e.g. iOS low-power mode) — resume on first touch.
+        const resume = () => {
+          video.play().catch(() => {});
+          document.removeEventListener("touchstart", resume);
+        };
+        document.addEventListener("touchstart", resume, { once: true });
+      });
+    };
+
+    if (video.readyState >= 2) {
+      tryPlay();
+    } else {
+      video.addEventListener("loadeddata", tryPlay, { once: true });
+    }
+
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") tryPlay();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+  }, []);
+
   return (
     <section
       id="top"
@@ -176,12 +214,16 @@ export default function Hero() {
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-navy shadow-2xl shadow-navy/20 ring-1 ring-black/5 sm:aspect-[3/4] lg:aspect-[4/5]">
               <video
+                ref={videoRef}
                 className="absolute inset-0 h-full w-full object-cover"
                 src={siteImages.heroVideo}
                 autoPlay
                 muted
                 loop
                 playsInline
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                disablePictureInPicture
                 preload="auto"
                 aria-label="WITHBIOCHEM 소개 영상"
               />
