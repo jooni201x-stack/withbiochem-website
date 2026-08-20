@@ -90,7 +90,7 @@ export default function Technology() {
   return (
     <section
       id="technology"
-      className="relative scroll-mt-20 bg-white py-20 sm:py-28"
+      className="relative scroll-mt-32 bg-white py-20 sm:py-28"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading

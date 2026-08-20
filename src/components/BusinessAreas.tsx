@@ -64,7 +64,7 @@ export default function BusinessAreas() {
   return (
     <section
       id="business"
-      className="relative scroll-mt-20 overflow-hidden py-20 sm:py-28"
+      className="relative scroll-mt-32 overflow-hidden py-20 sm:py-28"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-blue-soft/25 to-slate-50" />
 

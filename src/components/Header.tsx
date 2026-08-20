@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import BrandLogo from "./BrandLogo";
+import GuaranteeBanner from "./GuaranteeBanner";
 import { products } from "@/lib/products";
 
 const navItems = [
@@ -154,6 +155,8 @@ export default function Header() {
           {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
+
+      <GuaranteeBanner />
 
       {/* Mobile menu */}
       <AnimatePresence>

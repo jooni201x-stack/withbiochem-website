@@ -38,9 +38,9 @@ const metrics: Metric[] = [
     note: "최저가 납품 보장제",
   },
   {
-    target: 95,
-    suffix: "%+",
-    label: "품질 및 순도 95% 보장",
+    target: 96,
+    suffix: "%",
+    label: "품질 및 순도 96% 보장",
     note: "순도 보장제 · COA",
   },
   {
@@ -185,7 +185,7 @@ export default function WhyUs() {
     <section
       ref={sectionRef}
       id="why-us"
-      className="relative scroll-mt-20 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
+      className="relative scroll-mt-32 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
     >
       <div className="pointer-events-none absolute inset-0 opacity-20 hex-pattern" />
       <div className="pointer-events-none absolute -left-28 top-1/4 h-80 w-80 rounded-full bg-blue/15 blur-3xl" />
@@ -296,11 +296,17 @@ export default function WhyUs() {
           className="mt-5 rounded-2xl border border-[#FEE500]/20 bg-gradient-to-r from-[#FEE500]/12 via-white/[0.03] to-transparent px-5 py-4 sm:mt-6 sm:px-7 sm:py-5"
         >
           <p className="text-sm font-bold tracking-tight text-white sm:text-base">
-            업계 최초 순도보장 · 최저가 납품 보장제
+            업계 최초 순도 96% 보장 · 최저가 납품 보장제
           </p>
           <p className="mt-1.5 text-xs leading-relaxed text-slate-300 sm:text-sm">
             동일 규격 기준, 더 낮은 정식 견적이 있으면 그 가격에 맞춰
-            납품합니다.
+            납품합니다.{" "}
+            <a
+              href="#guarantee"
+              className="font-semibold text-[#FEE500] underline-offset-2 hover:underline"
+            >
+              보장제 자세히 보기
+            </a>
           </p>
         </motion.div>
 

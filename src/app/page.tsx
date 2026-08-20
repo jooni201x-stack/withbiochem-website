@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhyUs from "@/components/WhyUs";
+import Guarantee from "@/components/Guarantee";
 import About from "@/components/About";
 import BusinessAreas from "@/components/BusinessAreas";
 import Technology from "@/components/Technology";
@@ -38,6 +39,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <WhyUs />
+        <Guarantee />
         <About />
         <BusinessAreas />
         <Technology />

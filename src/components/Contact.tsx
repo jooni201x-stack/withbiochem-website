@@ -51,7 +51,7 @@ ${message}
   return (
     <section
       id="contact"
-      className="relative scroll-mt-20 bg-white py-20 sm:py-28"
+      className="relative scroll-mt-32 bg-white py-20 sm:py-28"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
@@ -70,8 +70,14 @@ ${message}
             견적 비교 환영
           </p>
           <p className="mt-1 text-xs leading-relaxed text-[#191600]/80 sm:text-sm">
-            동일 규격 기준 더 낮은 정식 견적이 있으면 말씀해 주세요. 순도보장 ·
-            최저가 납품 보장제를 운영합니다.
+            동일 규격 기준 더 낮은 정식 견적이 있으면 말씀해 주세요. 순도 96%
+            보장 · 최저가 납품 보장제를 운영합니다.{" "}
+            <a
+              href="#guarantee"
+              className="font-bold underline underline-offset-2 hover:opacity-80"
+            >
+              보장제 자세히 보기
+            </a>
           </p>
         </motion.div>
 

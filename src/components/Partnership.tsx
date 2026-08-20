@@ -53,7 +53,7 @@ export default function Partnership() {
   return (
     <section
       id="partnership"
-      className="relative scroll-mt-20 overflow-hidden border-t border-border bg-slate-50 py-20 sm:py-24"
+      className="relative scroll-mt-32 overflow-hidden border-t border-border bg-slate-50 py-20 sm:py-24"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading

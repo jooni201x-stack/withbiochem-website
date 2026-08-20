@@ -135,7 +135,7 @@ export default function CustomSynthesisPage() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-deep pt-24 pb-16 text-white sm:pt-28 sm:pb-24">
+      <section className="relative overflow-hidden bg-navy-deep pt-36 pb-16 text-white sm:pt-40 sm:pb-24">
         <div className="pointer-events-none absolute inset-0 hex-pattern opacity-30" />
         <div className="pointer-events-none absolute -right-20 top-20 h-80 w-80 rounded-full bg-blue/20 blur-3xl" />
         <div className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-blue-light/10 blur-3xl" />

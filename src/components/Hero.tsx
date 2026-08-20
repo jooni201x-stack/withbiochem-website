@@ -26,14 +26,14 @@ const fadeUp = {
 };
 
 const chips = [
-  "95%+ · COA",
+  "96% · COA",
   "국내 합성 · 빠른 납품",
   "50g부터",
   "최저가 납품 보장제",
 ];
 
 const highlights = [
-  { icon: ShieldCheck, title: "95%+ Purity", sub: "고순도 · 제품별 COA" },
+  { icon: ShieldCheck, title: "96% Purity", sub: "고순도 · 제품별 COA" },
   { icon: Truck, title: "Fast Domestic", sub: "국내 합성 · 빠른 납품" },
   { icon: FlaskConical, title: "Flexible Scale", sub: "50g 소량부터 대응" },
   { icon: FileCheck2, title: "Price Guarantee", sub: "최저가 납품 보장제" },
@@ -80,7 +80,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24"
+      className="relative overflow-hidden pt-36 pb-16 sm:pt-40 sm:pb-24"
     >
       <div className="pointer-events-none absolute inset-0 hex-pattern" />
       <div className="pointer-events-none absolute inset-0 gradient-radial" />
@@ -140,7 +140,7 @@ export default function Hero() {
               className="mt-4 max-w-xl text-sm leading-relaxed text-slate-500 sm:text-[15px]"
             >
               LPPS 기술로 원가를 낮추고, 통관 없이 빠르게 공급하는 국내 합성
-              파트너. 95%+ 순도 · COA · 50g부터 유연한 공급.
+              파트너. 96% 순도 · COA · 50g부터 유연한 공급.
             </motion.p>
 
             {/* USP chips — compact, restrained */}
@@ -237,7 +237,7 @@ export default function Hero() {
             >
               <div className="flex items-center justify-between gap-2 text-center">
                 {[
-                  { v: "95%+", l: "순도" },
+                  { v: "96%", l: "순도" },
                   { v: "COA", l: "분석성적서" },
                   { v: "KR", l: "국내 합성" },
                 ].map((s) => (

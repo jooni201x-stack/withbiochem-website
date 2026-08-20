@@ -21,7 +21,7 @@ const strengths = [
     title: "Quality",
     ko: "품질",
     points: [
-      "95% 이상 순도 (제품별 고순도 관리)",
+      "96% 순도 (제품별 고순도 관리)",
       "제품별 COA(분석성적서) 기본 제공",
       "요청 시 안정성·중금속 시험 데이터 지원",
     ],
@@ -52,7 +52,7 @@ const tradeInfo = [
   {
     icon: Package,
     label: "공급 형태",
-    value: "순수 분말(Powder), 95% 이상 순도, 제품별 COA",
+    value: "순수 분말(Powder), 96% 순도, 제품별 COA",
   },
   {
     icon: Scale,
@@ -80,7 +80,7 @@ export default function Strengths() {
   return (
     <section
       id="strengths"
-      className="relative scroll-mt-20 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
+      className="relative scroll-mt-32 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
     >
       <div className="pointer-events-none absolute inset-0 opacity-30 hex-pattern" />
       <div className="pointer-events-none absolute -left-24 top-1/3 h-64 w-64 rounded-full bg-blue/20 blur-3xl" />

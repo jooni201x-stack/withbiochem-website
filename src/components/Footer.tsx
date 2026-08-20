@@ -34,6 +34,11 @@ export default function Footer() {
               <p className="font-semibold text-navy">Navigate</p>
               <ul className="mt-2 space-y-1.5 text-slate-500">
                 <li>
+                  <a href="/#guarantee" className="hover:text-blue">
+                    보장제
+                  </a>
+                </li>
+                <li>
                   <a href="/#about" className="hover:text-blue">
                     회사 소개
                   </a>

@@ -94,7 +94,7 @@ export default async function ProductDetailPage({ params }: Props) {
       <Header />
       <main className="flex-1">
         {/* Hero banner */}
-        <section className="relative overflow-hidden bg-navy-deep pt-24 pb-16 text-white sm:pt-28 sm:pb-20">
+        <section className="relative overflow-hidden bg-navy-deep pt-36 pb-16 text-white sm:pt-40 sm:pb-20">
           <div className="pointer-events-none absolute inset-0 hex-pattern opacity-40" />
           <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
             <Link
@@ -314,7 +314,7 @@ export default async function ProductDetailPage({ params }: Props) {
               </div>
 
               {/* Sticky side CTA */}
-              <aside className="lg:sticky lg:top-24 lg:self-start">
+              <aside className="lg:sticky lg:top-36 lg:self-start">
                 <div className="rounded-2xl border border-border bg-slate-50 p-6 shadow-sm">
                   <p className="text-xs font-semibold tracking-widest text-blue">
                     B2B INQUIRY
@@ -332,7 +332,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     </div>
                     <div className="flex justify-between gap-2">
                       <dt className="font-semibold text-slate-600">순도</dt>
-                      <dd>95% 이상</dd>
+                      <dd>96%</dd>
                     </div>
                     <div className="flex justify-between gap-2">
                       <dt className="font-semibold text-slate-600">MOQ</dt>
@@ -438,7 +438,7 @@ function ContentBlock({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id} className="scroll-mt-28">
+    <div id={id} className="scroll-mt-36">
       <div className="mb-4 flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-soft text-blue">
           <Icon size={18} />

@@ -84,7 +84,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="relative scroll-mt-20 overflow-hidden bg-slate-50 py-20 sm:py-28"
+      className="relative scroll-mt-32 overflow-hidden bg-slate-50 py-20 sm:py-28"
     >
       <div className="pointer-events-none absolute inset-0 hex-pattern opacity-60" />
 

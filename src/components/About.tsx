@@ -29,7 +29,7 @@ const identities = [
     icon: Cpu,
     en: "Technology",
     ko: "기술",
-    desc: "LPPS 합성 기술, 95% 이상 순도, 국내 양산 역량",
+    desc: "LPPS 합성 기술, 96% 순도, 국내 양산 역량",
   },
 ];
 
@@ -56,7 +56,7 @@ const item = {
 
 export default function About() {
   return (
-    <section id="about" className="relative scroll-mt-20 bg-white py-20 sm:py-28">
+    <section id="about" className="relative scroll-mt-32 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="ABOUT WITHBIOCHEM"

@@ -121,7 +121,7 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="relative scroll-mt-20 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
+      className="relative scroll-mt-32 overflow-hidden bg-navy-deep py-20 text-white sm:py-28"
     >
       {/* 다크 + 옐로우 포인트 — WHY 다음 두 번째 임팩트 구간 */}
       <div className="pointer-events-none absolute inset-0 opacity-20 hex-pattern" />
