@@ -1,11 +1,12 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 type Props = {
   eyebrow: string;
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   align?: "left" | "center";
   light?: boolean;
 };

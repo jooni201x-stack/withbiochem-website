@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Beaker,
   Droplets,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import { siteImages } from "@/lib/images";
 
 const comparisons: {
   label: string;
@@ -96,8 +98,36 @@ export default function Technology() {
         <SectionHeading
           eyebrow="CORE TECHNOLOGIES"
           title="핵심 기술"
-          subtitle="레진 없는 용액상 합성(LPPS)으로 원가를 절감합니다. 이것이 중국산 대비 경쟁 단가의 근거입니다."
+          subtitle={
+            <>
+              당사는 국내 독자 LPPS 합성 기술을 보유해, 원가 절감과 고순도를 동시에 구현합니다.
+              <br />
+              수입 의존도가 높은 국내 펩타이드 시장에서 품질은 높이고 단가는 낮춰, 고객사의 솔루션이 됩니다.
+            </>
+          }
         />
+
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mt-12 w-full"
+        >
+          <div className="overflow-hidden rounded-2xl border border-border shadow-md shadow-navy/5">
+            <Image
+              src={siteImages.lppsComparison}
+              alt="위드바이오캠 LPPS 용액상 펩타이드 합성과 기존 고체상 합성 비교 공정도"
+              width={1712}
+              height={1152}
+              className="h-auto w-full"
+              sizes="(max-width: 768px) 100vw, 1152px"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-xs leading-relaxed text-slate-500 sm:text-sm">
+            고체상(SPPS) vs 당사 용액상(LPPS) 공정 비교 — 레진 없음 · 원가 절감 · 단계별 품질관리 · 96%+ COA
+          </figcaption>
+        </motion.figure>
 
         {/* LPPS comparison — 당사 기술 우위 강조 */}
         <motion.div

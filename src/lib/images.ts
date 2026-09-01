@@ -39,6 +39,9 @@ export const siteImages = {
   /** 문의 섹션 — contact/image-1.jpg, image-2.jpg */
   contact1: `${IMG}/contact/image-1.jpg`,
   contact2: `${IMG}/contact/image-2.jpg`,
+
+  /** 핵심 기술 LPPS 비교 — LPPS/LPPS.jpg */
+  lppsComparison: `${IMG}/LPPS/LPPS.jpg`,
 } as const;
 
 /**
