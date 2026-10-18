@@ -46,17 +46,29 @@ export const siteImages = {
 
 /**
  * 파트너 로고 — public/IMG_JOON/partner/
- * 파일 교체·추가 시 아래 목록과 파일명을 맞추면 됩니다.
+ * 브로셔(1016판) p17 파트너십 순서 기준. 파일 교체 시 file명만 맞추면 됩니다.
  */
 export const partnerLogos = [
-  { id: "bigsell", name: "Bigsell", file: "bigsell.png" },
-  { id: "daelim", name: "Daelim University", file: "daelim univ.png" },
-  { id: "korea-chem", name: "Korea Chem", file: "korea-chem.png" },
-  { id: "korea-b", name: "Korea B", file: "korea_B.png" },
-  { id: "korea-medi", name: "Korea Medi", file: "KOREA_medi.png" },
-  { id: "oncos", name: "Oncos", file: "oncos.png" },
-  { id: "onco", name: "Onco", file: "onco_png.jpg" },
-  { id: "un2", name: "UN2", file: "un2.png" },
+  { id: "vaxcell", name: "VAXCELL", file: "bigsell.png" },
+  { id: "daelim", name: "대림대학교 (Daelim University)", file: "daelim univ.png" },
+  {
+    id: "ku-chemistry",
+    name: "고려대학교 이과대학 화학과 (Korea University, Dept. of Chemistry)",
+    file: "korea-chem.png",
+  },
+  {
+    id: "ku-rbf",
+    name: "고려대학교 산학협력단 (Korea University Research and Business Foundation)",
+    file: "korea_B.png",
+  },
+  {
+    id: "ku-anam",
+    name: "고려대학교 안암병원 (Korea University Anam Hospital)",
+    file: "KOREA_medi.png",
+  },
+  { id: "coson", name: "COSON", file: "oncos.png" },
+  { id: "oncocross", name: "ONCOCROSS", file: "onco_png.jpg" },
+  { id: "un2-beauty", name: "UN2 BEAUTY", file: "un2.png" },
 ] as const;
 
 /** 파트너 로고 URL (공백 등 파일명 안전 인코딩) */

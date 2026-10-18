@@ -8,9 +8,11 @@ export const companyInfo = {
   address: "경기도 성남시 중원구 둔천대로 388번길 24 우림라이온스벨리 3차 511호",
   phone: "010-8793-9997",
   phoneHref: "tel:01087939997",
-  email: "kwon@withbiochem.com",
+  email: "ace@withbiochem.com",
   /** 카카오톡 오픈채팅 — 빠른 상담 */
   kakaoOpenChat: "https://open.kakao.com/o/sfvTefHi",
+  /** 브로셔 PDF — 버전 쿼리로 캐시 무효화 (교체 시 날짜만 갱신) */
+  brochureUrl: "/brochure.pdf?v=20261016",
 } as const;
 
 export const siteSeo = {

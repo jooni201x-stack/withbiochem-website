@@ -11,6 +11,7 @@ import {
   Truck,
 } from "lucide-react";
 import { siteImages } from "@/lib/images";
+import { companyInfo } from "@/lib/company";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -191,7 +192,7 @@ export default function Hero() {
                 />
               </a>
               <a
-                href="/brochure.pdf"
+                href={companyInfo.brochureUrl}
                 download="WITHBIOCHEM_브로셔.pdf"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-navy transition-all hover:border-blue/30 hover:bg-blue-soft"
               >

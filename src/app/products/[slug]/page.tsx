@@ -22,6 +22,7 @@ import {
 } from "@/lib/products";
 import { softBreakName } from "@/lib/text";
 import { CONTACT_EMAIL, MAILTO_INQUIRY } from "@/lib/mailto";
+import { companyInfo } from "@/lib/company";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -142,7 +143,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     샘플 · 견적 문의
                   </a>
                   <a
-                    href="/brochure.pdf"
+                    href={companyInfo.brochureUrl}
                     download="WITHBIOCHEM_브로셔.pdf"
                     className="inline-flex rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >

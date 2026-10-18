@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# brochure working copy (source: supplied PDF, not committed)
+/_incoming/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
