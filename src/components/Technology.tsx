@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import {
-  Beaker,
   Droplets,
-  Atom,
   CheckCircle2,
   Sparkles,
   TrendingDown,
@@ -72,23 +70,11 @@ const peptidePoints = [
   "아이큐어㈜ 프로젝트 수행 (케토프로펜·리도카인 불순물 합성 등)",
 ];
 
-const azides = [
-  "Azidoalanine (Ala(N₃))",
-  "Azidohomoalanine (Aha)",
-  "p-Azido-L-phenylalanine (pAzF)",
-  "NH₂-Lys(N₃)-OH",
-  "Peptide conjugation linker (N₃)",
-];
-
-const orgSkills = [
-  "복잡한 구조의 합성 가능",
-  "다양한 반응 수행 및 선택적 반응 제어",
-  "신규 반응 개발 · 최적 조건 확립",
-  "Scale-up 합성 및 공정 개발",
-  "고순도 제품 합성 및 정제",
-];
-
-export default function Technology() {
+export default function Technology({
+  standalone = false,
+}: {
+  standalone?: boolean;
+}) {
   return (
     <section
       id="technology"
@@ -96,8 +82,9 @@ export default function Technology() {
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
+          as={standalone ? "h1" : "h2"}
           eyebrow="CORE TECHNOLOGIES"
-          title="핵심 기술"
+          title="LPPS 용액상 펩타이드 합성 기술"
           subtitle={
             <>
               당사는 국내 독자 LPPS 합성 기술을 보유해, 원가 절감과 고순도를 동시에 구현합니다.
@@ -298,7 +285,7 @@ export default function Technology() {
           </div>
         </motion.div>
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <div className="mt-8">
           {/* Peptide capabilities */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -316,7 +303,7 @@ export default function Technology() {
             <p className="mt-1 text-sm text-slate-500">
               액상 공정 최적화로 원가 절감과 가격 경쟁력을 확보합니다.
             </p>
-            <ul className="mt-5 space-y-2.5">
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {peptidePoints.map((p) => (
                 <li
                   key={p}
@@ -331,62 +318,30 @@ export default function Technology() {
               ))}
             </ul>
           </motion.div>
-
-          {/* Azide + organic skills */}
-          <div className="flex flex-col gap-5">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.06 }}
-              className="rounded-2xl border border-border bg-white p-6 sm:p-7"
-            >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-50 text-cyan-700">
-                <Atom size={20} />
-              </div>
-              <h3 className="text-lg font-bold text-navy">
-                아지도 화합물 · 클릭 화학
-              </h3>
-              <p className="mt-1 text-sm text-slate-500">
-                Diazo-transfer Reagents 개발 및 다양한 아지도 화합물 합성
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {azides.map((a) => (
-                  <li
-                    key={a}
-                    className="rounded-lg border border-border bg-slate-50 px-2.5 py-1.5 font-mono text-[11px] font-medium text-navy sm:text-xs"
-                  >
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-2xl border border-border bg-navy p-6 text-white sm:p-7"
-            >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-blue-light">
-                <Beaker size={20} />
-              </div>
-              <h3 className="text-lg font-bold">유기합성 핵심 역량</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                다양한 구조의 합성 계획부터 정제 전략까지
-              </p>
-              <ul className="mt-4 grid gap-2 sm:grid-cols-1">
-                {orgSkills.map((s) => (
-                  <li key={s} className="flex gap-2 text-sm text-slate-200">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-blue-light" />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="mt-5 flex flex-col items-start justify-between gap-4 rounded-2xl border border-blue/15 bg-blue-soft/30 p-6 sm:flex-row sm:items-center sm:p-7"
+        >
+          <div>
+            <p className="text-xs font-semibold tracking-widest text-blue">
+              RELATED
+            </p>
+            <p className="mt-1 text-sm font-bold text-navy sm:text-base">
+              아지도 화합물 · 클릭 화학 빌딩블록도 맞춤 합성으로 공급합니다.
+            </p>
+          </div>
+          <a
+            href="/click-chemistry"
+            className="inline-flex shrink-0 items-center justify-center rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue"
+          >
+            클릭 화학 자세히 보기
+          </a>
+        </motion.div>
       </div>
     </section>
   );

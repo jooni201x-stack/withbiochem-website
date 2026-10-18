@@ -11,6 +11,7 @@ import {
   Truck,
 } from "lucide-react";
 import { siteImages } from "@/lib/images";
+import { companyInfo } from "@/lib/company";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -104,7 +105,17 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              className="text-4xl font-bold leading-[1.12] tracking-tight text-navy sm:text-5xl lg:text-[3.25rem]"
+              className="text-2xl font-bold leading-snug tracking-tight text-navy sm:text-3xl lg:text-[2.1rem]"
+            >
+              국내 합성 고순도 화장품 펩타이드 원료
+            </motion.h1>
+
+            <motion.p
+              custom={1}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="mt-2 text-4xl font-bold leading-[1.12] tracking-tight text-navy sm:text-5xl lg:text-[3.25rem]"
             >
               COSMETIC
               <br />
@@ -115,7 +126,7 @@ export default function Hero() {
               <span className="text-[0.72em] font-semibold tracking-[0.18em] text-slate-500">
                 RAW MATERIALS
               </span>
-            </motion.h1>
+            </motion.p>
 
             <motion.p
               custom={2}
@@ -191,7 +202,7 @@ export default function Hero() {
                 />
               </a>
               <a
-                href="/brochure.pdf"
+                href={companyInfo.brochureUrl}
                 download="WITHBIOCHEM_브로셔.pdf"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-semibold text-navy transition-all hover:border-blue/30 hover:bg-blue-soft"
               >

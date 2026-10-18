@@ -22,6 +22,8 @@ import {
 } from "@/lib/products";
 import { softBreakName } from "@/lib/text";
 import { CONTACT_EMAIL, MAILTO_INQUIRY } from "@/lib/mailto";
+import { companyInfo } from "@/lib/company";
+import { productLd, breadcrumbLd } from "@/lib/jsonld";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -52,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
   const title = `${product.name} · 화장품 펩타이드 원료`;
-  const description = `${product.name} (${product.brand}) — 위드바이오캠 화장품 펩타이드 원료. ${product.summary} 펩타이드 제조 · 맞춤 합성 · B2B 공급.`;
+  const description = `${product.name} — 위드바이오캠 화장품 펩타이드 원료. ${product.summary}`;
   return {
     title,
     description,
@@ -71,6 +73,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       type: "website",
       locale: "ko_KR",
+      images: [
+        {
+          url: product.image,
+          width: 1024,
+          height: 1024,
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} | 위드바이오캠`,
+      description,
+      images: [product.image],
     },
     alternates: {
       canonical: `/products/${product.slug}`,
@@ -89,8 +105,22 @@ export default async function ProductDetailPage({ params }: Props) {
   const prev = idx > 0 ? products[idx - 1] : null;
   const next = idx < products.length - 1 ? products[idx + 1] : null;
 
+  const breadcrumb = breadcrumbLd([
+    { name: "홈", path: "/" },
+    { name: "주요 제품", path: "/products" },
+    { name: product.name, path: `/products/${product.slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd(product)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <Header />
       <main className="flex-1">
         {/* Hero banner */}
@@ -142,7 +172,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     샘플 · 견적 문의
                   </a>
                   <a
-                    href="/brochure.pdf"
+                    href={companyInfo.brochureUrl}
                     download="WITHBIOCHEM_브로셔.pdf"
                     className="inline-flex rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                   >
@@ -212,6 +242,24 @@ export default async function ProductDetailPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
+                  {product.illustrations && (
+                    <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-4">
+                      {product.illustrations.map((src, i) => (
+                        <div
+                          key={src}
+                          className="relative aspect-square overflow-hidden rounded-xl border border-border bg-slate-50"
+                        >
+                          <Image
+                            src={src}
+                            alt={`${product.name} 작용 기전 그림 ${i + 1}`}
+                            fill
+                            className="object-contain p-2"
+                            sizes="(max-width: 768px) 50vw, 340px"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </ContentBlock>
 
                 <ContentBlock

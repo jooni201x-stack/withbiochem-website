@@ -14,6 +14,7 @@ import {
 import SectionHeading from "./SectionHeading";
 import { products } from "@/lib/products";
 import { softBreakName } from "@/lib/text";
+import { siteImages } from "@/lib/images";
 
 const iconMap = {
   "01": Sparkles,
@@ -114,7 +115,11 @@ const card = {
   },
 };
 
-export default function Products() {
+export default function Products({
+  standalone = false,
+}: {
+  standalone?: boolean;
+}) {
   const featured = products.filter((p) => p.code !== "05");
   const custom = products.find((p) => p.code === "05");
 
@@ -132,8 +137,9 @@ export default function Products() {
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
+            as={standalone ? "h1" : "h2"}
             eyebrow="PRODUCTS & SERVICES"
-            title="주요 펩타이드 서비스"
+            title="화장품 펩타이드 원료 제품"
             subtitle="안티에이징·재생·아이케어 핵심 원료를 국내에서 합성·공급합니다. 중국산 대체, 소량 시험, 정기 납품까지 — 상업용 B2B 공급에 대응합니다."
             light
           />
@@ -151,6 +157,24 @@ export default function Products() {
             </span>
           </motion.p>
         </div>
+
+        {/* 제품 라인업 배너 */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
+          className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 sm:mt-12"
+        >
+          <Image
+            src={siteImages.productLineup}
+            alt="위드바이오캠 펩타이드 원료 5종 라인업"
+            width={1200}
+            height={488}
+            className="h-auto w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 1200px"
+          />
+        </motion.div>
 
         {/* 2×2 impact grid */}
         <motion.div
@@ -244,6 +268,11 @@ export default function Products() {
                       <span className="text-[#b8860b]">수입 대체 · 단가 · 납기에 유리</span>
                     </p>
 
+                    <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-[11px] font-bold text-slate-500">
+                      진입 추천 채널
+                      <span className="text-navy">{p.channel}</span>
+                    </p>
+
                     <ul className="mt-4 flex flex-wrap gap-2">
                       {p.highlights.map((h) => (
                         <li
@@ -289,6 +318,24 @@ export default function Products() {
             );
           })}
         </motion.div>
+
+        {/* 자세히 보기 — 홈 요약본에서만 노출 */}
+        {!standalone && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="mt-10 flex justify-center sm:mt-12"
+          >
+            <a
+              href="/products"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10"
+            >
+              전체 제품 · 추천 조합 보기
+            </a>
+          </motion.div>
+        )}
 
         {/* 05 Custom Synthesis — full-width dark impact */}
         {custom && (

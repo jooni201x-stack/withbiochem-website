@@ -1,43 +1,34 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Heart, GraduationCap, Lightbulb, Cpu } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import { siteImages } from "@/lib/images";
 
 const identities = [
   {
     icon: Heart,
     en: "Passion",
     ko: "열정",
-    desc: "고객과 함께 제형을 완성하는 따뜻한 전문성",
+    desc: "고객과 함께 제형을 완성하는 따뜻한 전문성. 원료 공급을 넘어 처방·배합 단계까지 함께 고민합니다.",
   },
   {
     icon: GraduationCap,
     en: "Professional",
     ko: "전문",
-    desc: "고려대학교 화학 박사급 연구진이 합성을 직접 설계·관리하는 PhD 기반 R&D",
+    desc: "고려대학교 화학 박사급 연구진이 합성을 직접 설계·관리하는 PhD 기반 R&D 역량.",
   },
   {
     icon: Lightbulb,
     en: "Smart",
     ko: "스마트",
-    desc: "복잡한 펩타이드 과학을 명료하게, 빠른 의사결정 지원",
+    desc: "복잡한 펩타이드 과학을 명료하게. 빠른 커뮤니케이션으로 고객의 의사결정을 지원합니다.",
   },
   {
     icon: Cpu,
     en: "Technology",
     ko: "기술",
-    desc: "LPPS 합성 기술, 96% 순도, 국내 양산 역량",
+    desc: "국내 독자 LPPS 합성 기술, 96% 순도 보장, 국내 양산 역량.",
   },
-];
-
-const gallery = [
-  { src: siteImages.aboutGallery1, alt: "연구실 분석 작업", label: "연구 분석" },
-  { src: siteImages.aboutGallery2, alt: "연구진 실험", label: "PhD R&D" },
-  { src: siteImages.aboutGallery3, alt: "바이오 실험", label: "품질 관리" },
-  { src: siteImages.aboutGallery4, alt: "화장품 원료 제형", label: "원료 제형" },
 ];
 
 const container = {
@@ -54,11 +45,12 @@ const item = {
   },
 };
 
-export default function About() {
+export default function About({ standalone = false }: { standalone?: boolean }) {
   return (
     <section id="about" className="relative scroll-mt-32 bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
+          as={standalone ? "h1" : "h2"}
           eyebrow="ABOUT WITHBIOCHEM"
           title="회사 소개"
           subtitle="Research-driven Custom Synthesis Partner · Your Trusted Partner in Custom Chemical Innovation"
@@ -85,9 +77,10 @@ export default function About() {
               국내에서 직접 합성합니다.
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-slate-500 sm:text-base">
-              신규 화합물 합성·최적화 연구, 고난도 유기 합성, 고객사 사업 니즈를
-              반영한 맞춤 서비스까지 — 연구 중심의 파트너로서 안정적인 공급망과
-              합리적인 거래 구조를 제공합니다.
+              화장품 핵심 펩타이드 원료는 그동안 중국·미국·유럽으로부터의 수입
+              의존도가 높았습니다. 신규 화합물 합성·최적화 연구, 고난도 유기
+              합성, 고객사 사업 니즈를 반영한 맞춤 서비스까지 — 연구 중심의
+              파트너로서 안정적인 공급망과 합리적인 거래 구조를 제공합니다.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -160,38 +153,23 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Image gallery */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
-        >
-          {gallery.map((g, i) => (
-            <motion.div
-              key={g.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.45 }}
-              whileHover={{ y: -4 }}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-md ring-1 ring-black/5"
+        {/* 자세히 보기 — 홈 요약본에서만 노출 */}
+        {!standalone && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-10 flex justify-center sm:mt-12"
+          >
+            <a
+              href="/about"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-6 py-3 text-sm font-semibold text-navy shadow-sm transition-all hover:border-blue/30 hover:bg-blue-soft"
             >
-              <Image
-                src={g.src}
-                alt={g.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
-              <p className="absolute bottom-3 left-3 text-sm font-semibold text-white">
-                {g.label}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+              고려대 PhD 연구진 · 연구 시설 자세히 보기
+            </a>
+          </motion.div>
+        )}
       </div>
     </section>
   );
