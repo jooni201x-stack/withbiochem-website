@@ -105,7 +105,17 @@ export default function Hero() {
               variants={fadeUp}
               initial="hidden"
               animate="show"
-              className="text-4xl font-bold leading-[1.12] tracking-tight text-navy sm:text-5xl lg:text-[3.25rem]"
+              className="text-2xl font-bold leading-snug tracking-tight text-navy sm:text-3xl lg:text-[2.1rem]"
+            >
+              국내 합성 고순도 화장품 펩타이드 원료
+            </motion.h1>
+
+            <motion.p
+              custom={1}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              className="mt-2 text-4xl font-bold leading-[1.12] tracking-tight text-navy sm:text-5xl lg:text-[3.25rem]"
             >
               COSMETIC
               <br />
@@ -116,7 +126,7 @@ export default function Hero() {
               <span className="text-[0.72em] font-semibold tracking-[0.18em] text-slate-500">
                 RAW MATERIALS
               </span>
-            </motion.h1>
+            </motion.p>
 
             <motion.p
               custom={2}

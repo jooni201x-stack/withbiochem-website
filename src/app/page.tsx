@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import WhyUs from "@/components/WhyUs";
 import Guarantee from "@/components/Guarantee";
 import About from "@/components/About";
-import Facility from "@/components/Facility";
 import BusinessAreas from "@/components/BusinessAreas";
 import Technology from "@/components/Technology";
 import Products from "@/components/Products";
@@ -13,7 +12,7 @@ import Strengths from "@/components/Strengths";
 import Contact from "@/components/Contact";
 import Partnership from "@/components/Partnership";
 import Footer from "@/components/Footer";
-import { siteSeo } from "@/lib/company";
+import { siteSeo, ogImages } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: {
@@ -26,6 +25,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: siteSeo.locale,
     url: `${siteSeo.siteUrl}/`,
+    images: ogImages(siteSeo.openGraphTitle),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteSeo.openGraphTitle,
+    description: siteSeo.openGraphDescription,
+    images: [siteSeo.ogImage],
   },
   // 홈 표준 URL — Google 중복(/home 등) 정리용
   alternates: {
@@ -42,7 +48,6 @@ export default function Home() {
         <WhyUs />
         <Guarantee />
         <About />
-        <Facility />
         <BusinessAreas />
         <Technology />
         <Products />

@@ -67,7 +67,12 @@ const conditions = [
   "프로모션(추가 10%)은 운영 정책에 따라 조기 종료될 수 있음",
 ];
 
-export default function Guarantee() {
+export default function Guarantee({
+  standalone = false,
+}: {
+  standalone?: boolean;
+}) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <section
       id="guarantee"
@@ -87,9 +92,9 @@ export default function Guarantee() {
           <p className="text-xs font-semibold tracking-[0.2em] text-blue sm:text-[13px]">
             PRICE &amp; PURITY GUARANTEE
           </p>
-          <h2 className="product-name mt-2 text-2xl font-bold tracking-tight text-navy sm:text-3xl lg:text-[2.1rem]">
+          <Heading className="product-name mt-2 text-2xl font-bold tracking-tight text-navy sm:text-3xl lg:text-[2.1rem]">
             전세계 최저가 보장제 · 순도 96% 보장제
-          </h2>
+          </Heading>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-500 sm:text-base">
             가격은 낮추고, 품질은 지킵니다. LPPS로 원가를 낮춘 국내 공급
             파트너.

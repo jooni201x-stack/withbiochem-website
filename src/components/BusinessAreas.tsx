@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   FlaskConical,
@@ -36,6 +37,7 @@ const areas = [
     en: "Azide & Click Chemistry",
     ko: "아지도 화합물 · 클릭 화학",
     desc: "Diazo-transfer 시약 및 다양한 아지도 빌딩 블록·펩타이드 컨주게이션 링커 합성",
+    href: "/click-chemistry",
   },
 ];
 
@@ -76,32 +78,43 @@ export default function BusinessAreas() {
         />
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {areas.map((a, i) => (
-            <motion.div
-              key={a.en}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                delay: i * 0.08,
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1] as const,
-              }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="rounded-2xl border border-border bg-white p-6 shadow-sm"
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-soft text-blue">
-                <a.icon size={22} strokeWidth={1.75} />
-              </div>
-              <p className="text-[11px] font-semibold tracking-wide text-blue">
-                {a.en}
-              </p>
-              <h3 className="mt-1 text-base font-bold text-navy">{a.ko}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                {a.desc}
-              </p>
-            </motion.div>
-          ))}
+          {areas.map((a, i) => {
+            const card = (
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{
+                  delay: i * 0.08,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1] as const,
+                }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`h-full rounded-2xl border border-border bg-white p-6 shadow-sm ${
+                  a.href ? "transition-colors hover:border-blue/30" : ""
+                }`}
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-soft text-blue">
+                  <a.icon size={22} strokeWidth={1.75} />
+                </div>
+                <p className="text-[11px] font-semibold tracking-wide text-blue">
+                  {a.en}
+                </p>
+                <h3 className="mt-1 text-base font-bold text-navy">{a.ko}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  {a.desc}
+                </p>
+              </motion.div>
+            );
+
+            return a.href ? (
+              <Link key={a.en} href={a.href}>
+                {card}
+              </Link>
+            ) : (
+              <div key={a.en}>{card}</div>
+            );
+          })}
         </div>
 
         <motion.div

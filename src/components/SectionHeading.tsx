@@ -9,6 +9,8 @@ type Props = {
   subtitle?: ReactNode;
   align?: "left" | "center";
   light?: boolean;
+  /** 독립 페이지에서 페이지의 유일한 H1로 쓸 때 "h1" 전달 (기본 h2) */
+  as?: "h1" | "h2";
 };
 
 export default function SectionHeading({
@@ -17,6 +19,7 @@ export default function SectionHeading({
   subtitle,
   align = "left",
   light = false,
+  as: Heading = "h2",
 }: Props) {
   return (
     <motion.div
@@ -33,13 +36,13 @@ export default function SectionHeading({
       >
         {eyebrow}
       </p>
-      <h2
+      <Heading
         className={`product-name mt-2 text-2xl font-bold tracking-tight sm:text-3xl lg:text-[2.1rem] ${
           light ? "text-white" : "text-navy"
         }`}
       >
         {title}
-      </h2>
+      </Heading>
       {subtitle && (
         <p
           className={`mt-3 max-w-2xl text-sm leading-relaxed sm:text-base ${

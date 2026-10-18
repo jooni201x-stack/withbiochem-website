@@ -34,12 +34,12 @@ export default function Footer() {
               <p className="font-semibold text-navy">Navigate</p>
               <ul className="mt-2 space-y-1.5 text-slate-500">
                 <li>
-                  <a href="/#guarantee" className="hover:text-blue">
+                  <a href="/guarantee" className="hover:text-blue">
                     보장제
                   </a>
                 </li>
                 <li>
-                  <a href="/#about" className="hover:text-blue">
+                  <a href="/about" className="hover:text-blue">
                     회사 소개
                   </a>
                 </li>
@@ -49,12 +49,17 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="/#technology" className="hover:text-blue">
+                  <a href="/technology" className="hover:text-blue">
                     핵심 기술
                   </a>
                 </li>
                 <li>
-                  <a href="/#products" className="hover:text-blue">
+                  <a href="/click-chemistry" className="hover:text-blue">
+                    클릭 화학
+                  </a>
+                </li>
+                <li>
+                  <a href="/products" className="hover:text-blue">
                     주요 제품
                   </a>
                 </li>

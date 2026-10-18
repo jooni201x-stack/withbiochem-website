@@ -14,7 +14,7 @@ export default function GuaranteeBanner() {
           견적 시 맞춤 납품
         </p>
         <Link
-          href="/#guarantee"
+          href="/guarantee"
           className="inline-flex shrink-0 items-center gap-0.5 rounded-full bg-[#191600] px-2.5 py-1 text-[10px] font-bold text-[#FEE500] transition-opacity hover:opacity-85 sm:px-3 sm:text-[11px]"
         >
           보장제 자세히 보기
