@@ -14,6 +14,7 @@ import {
 import SectionHeading from "./SectionHeading";
 import { products } from "@/lib/products";
 import { softBreakName } from "@/lib/text";
+import { siteImages } from "@/lib/images";
 
 const iconMap = {
   "01": Sparkles,
@@ -169,6 +170,24 @@ export default function Products() {
             </span>
           </motion.p>
         </div>
+
+        {/* 제품 라인업 배너 */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
+          className="relative mt-10 overflow-hidden rounded-2xl border border-white/10 sm:mt-12"
+        >
+          <Image
+            src={siteImages.productLineup}
+            alt="위드바이오캠 펩타이드 원료 5종 라인업"
+            width={1200}
+            height={488}
+            className="h-auto w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 1200px"
+          />
+        </motion.div>
 
         {/* 2×2 impact grid */}
         <motion.div

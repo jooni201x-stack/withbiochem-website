@@ -44,6 +44,9 @@ export const siteImages = {
   product04: `${IMG}/service/product-4.jpg`,
   product05: `${IMG}/service/product-5.jpg`,
 
+  /** 제품 라인업 배너 (브로셔 1016판 p11 추출) — service/lineup-extracted.webp */
+  productLineup: `${IMG}/service/lineup-extracted.webp`,
+
   /** 공급 강점 배너 — strengths/banner.jpg */
   strengthsBanner: `${IMG}/strengths/banner.jpg`,
 
@@ -85,4 +88,12 @@ export const partnerLogos = [
 /** 파트너 로고 URL (공백 등 파일명 안전 인코딩) */
 export function partnerLogoSrc(file: string): string {
   return `${IMG}/partner/${encodeURIComponent(file)}`;
+}
+
+/**
+ * 제품 상세 일러스트 (브로셔 1016판 p12~15 추출) — service/detail/{code}-{1,2}-extracted.webp
+ * code: pt5 / ghkcu / pt1 / dp2
+ */
+export function productIllustrationSrc(code: string, n: 1 | 2): string {
+  return `${IMG}/service/detail/${code}-${n}-extracted.webp`;
 }

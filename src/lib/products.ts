@@ -1,4 +1,4 @@
-import { siteImages } from "@/lib/images";
+import { siteImages, productIllustrationSrc } from "@/lib/images";
 
 export type ProductDetail = {
   slug: string;
@@ -19,6 +19,8 @@ export type ProductDetail = {
   introduction: string;
   /** 작용 기전 */
   mechanism: string[];
+  /** 작용 기전 일러스트 2장 (브로셔 1016판 추출) — 맞춤 합성(05)은 없음 */
+  illustrations?: [string, string];
   /** 임상 · 근거 데이터 */
   clinical: { text: string; source?: string }[];
   /** 시장 포지셔닝 */
@@ -58,6 +60,10 @@ export const products: ProductDetail[] = [
       "피부 속 콜라겐 합성을 켜는 스위치 역할을 하는 단백질(TSP-1)의 일부 구조를 모방한 펩타이드입니다.",
       "TGF-β 성장인자 신호를 활성화해 진피 섬유아세포가 제1형 콜라겐을 더 만들도록 유도합니다.",
       "콜라겐 분해효소(MMP-1·MMP-3)를 억제하여 콜라겐 분해를 줄이는 데 기여합니다.",
+    ],
+    illustrations: [
+      productIllustrationSrc("pt5", 1),
+      productIllustrationSrc("pt5", 2),
     ],
     clinical: [
       {
@@ -133,6 +139,10 @@ export const products: ProductDetail[] = [
       "콜라겐 생성을 자극하며, 12주 국소 도포 시 콜라겐 개선 응답률이 비타민C·레티노산 대비 유리한 비교 데이터가 보고되어 있습니다.",
       "in vitro 상처 모델에서 콜라겐 합성 자극이 비콜라겐 단백질의 약 2배, 제1형·제3형 콜라겐 mRNA 증가가 보고됩니다.",
     ],
+    illustrations: [
+      productIllustrationSrc("ghkcu", 1),
+      productIllustrationSrc("ghkcu", 2),
+    ],
     clinical: [
       {
         text: "12주 국소 도포 비교: 콜라겐 개선 응답 GHK-Cu 70% vs 비타민 C 50% vs 레티노산 40%",
@@ -204,6 +214,10 @@ export const products: ProductDetail[] = [
       "팔미토일화된 GHK 신호 펩타이드로, 섬유아세포 활성을 높여 세포외기질(ECM) 단백질 합성을 자극합니다.",
       "콜라겐뿐 아니라 엘라스틴·히알루론산·글리코사미노글리칸·피브로넥틴 생성을 촉진해 주름 개선과 탄력에 기여합니다.",
     ],
+    illustrations: [
+      productIllustrationSrc("pt1", 1),
+      productIllustrationSrc("pt1", 2),
+    ],
     clinical: [
       {
         text: "스킨케어 연구에서 GHK-Cu, Palmitoyl Tetrapeptide-7과 함께 집중 복합체로 검증",
@@ -266,6 +280,10 @@ export const products: ProductDetail[] = [
       "안지오텐신 전환효소(ACE) 억제제로 동정된 펩타이드입니다.",
       "눈가의 림프 배수를 촉진하고 체액 정체를 줄입니다.",
       "콜라겐 합성과는 무관하며, 포지셔닝은 아이컨투어(부기·다크서클)입니다.",
+    ],
+    illustrations: [
+      productIllustrationSrc("dp2", 1),
+      productIllustrationSrc("dp2", 2),
     ],
     clinical: [
       {

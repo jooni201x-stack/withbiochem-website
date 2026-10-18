@@ -213,6 +213,24 @@ export default async function ProductDetailPage({ params }: Props) {
                       </li>
                     ))}
                   </ul>
+                  {product.illustrations && (
+                    <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-4">
+                      {product.illustrations.map((src, i) => (
+                        <div
+                          key={src}
+                          className="relative aspect-square overflow-hidden rounded-xl border border-border bg-slate-50"
+                        >
+                          <Image
+                            src={src}
+                            alt={`${product.name} 작용 기전 그림 ${i + 1}`}
+                            fill
+                            className="object-contain p-2"
+                            sizes="(max-width: 768px) 50vw, 340px"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </ContentBlock>
 
                 <ContentBlock
