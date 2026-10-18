@@ -41,6 +41,10 @@ const purityPoints = [
     label: "미달 시",
     text: "순도 미달 시 재공급 또는 협의 보상",
   },
+  {
+    label: "추가 지원",
+    text: "요청 시 안정성·중금속 시험 데이터 지원. HPLC · LC-MS · NMR 분석 기반 규격 관리.",
+  },
 ];
 
 const whyPoints = [

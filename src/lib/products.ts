@@ -36,7 +36,7 @@ export const products: ProductDetail[] = [
     slug: "palmitoyl-tripeptide-5",
     code: "01",
     name: "Palmitoyl Tripeptide-5",
-    brand: "Pal-KVK구성",
+    brand: "Pal-KVK 구성 (Pal-Lys-Val-Lys)",
     inci: "Palmitoyl Tripeptide-5",
     cas: "623172-56-5",
     tag: "콜라겐 부스팅 / 주름·탄력",
@@ -53,7 +53,7 @@ export const products: ProductDetail[] = [
     accent: "from-sky-500/10 to-blue-600/5",
     iconBg: "bg-sky-50 text-sky-600",
     introduction:
-      "피부가 스스로 콜라겐을 더 만들도록 “신호”를 보내는 콜라겐 부스팅 펩타이드입니다. INCI: Palmitoyl Tripeptide-5, CAS 623172-56-5, 상품명 Pal-KVK구성. 프리미엄 안티에이징 스킨케어의 메인 활성으로 포지셔닝됩니다.",
+      "피부가 스스로 콜라겐을 더 만들도록 “신호”를 보내는 콜라겐 부스팅 펩타이드입니다. INCI: Palmitoyl Tripeptide-5, CAS 623172-56-5, Pal-KVK 구성 (Pal-Lys-Val-Lys). 프리미엄 안티에이징 스킨케어의 메인 활성으로 포지셔닝됩니다.",
     mechanism: [
       "피부 속 콜라겐 합성을 켜는 스위치 역할을 하는 단백질(TSP-1)의 일부 구조를 모방한 펩타이드입니다.",
       "TGF-β 성장인자 신호를 활성화해 진피 섬유아세포가 제1형 콜라겐을 더 만들도록 유도합니다.",

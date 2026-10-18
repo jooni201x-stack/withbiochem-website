@@ -11,25 +11,25 @@ const identities = [
     icon: Heart,
     en: "Passion",
     ko: "열정",
-    desc: "고객과 함께 제형을 완성하는 따뜻한 전문성",
+    desc: "고객과 함께 제형을 완성하는 따뜻한 전문성. 원료 공급을 넘어 처방·배합 단계까지 함께 고민합니다.",
   },
   {
     icon: GraduationCap,
     en: "Professional",
     ko: "전문",
-    desc: "고려대학교 화학 박사급 연구진이 합성을 직접 설계·관리하는 PhD 기반 R&D",
+    desc: "고려대학교 화학 박사급 연구진이 합성을 직접 설계·관리하는 PhD 기반 R&D 역량.",
   },
   {
     icon: Lightbulb,
     en: "Smart",
     ko: "스마트",
-    desc: "복잡한 펩타이드 과학을 명료하게, 빠른 의사결정 지원",
+    desc: "복잡한 펩타이드 과학을 명료하게. 빠른 커뮤니케이션으로 고객의 의사결정을 지원합니다.",
   },
   {
     icon: Cpu,
     en: "Technology",
     ko: "기술",
-    desc: "LPPS 합성 기술, 96% 순도, 국내 양산 역량",
+    desc: "국내 독자 LPPS 합성 기술, 96% 순도 보장, 국내 양산 역량.",
   },
 ];
 
@@ -85,9 +85,10 @@ export default function About() {
               국내에서 직접 합성합니다.
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-slate-500 sm:text-base">
-              신규 화합물 합성·최적화 연구, 고난도 유기 합성, 고객사 사업 니즈를
-              반영한 맞춤 서비스까지 — 연구 중심의 파트너로서 안정적인 공급망과
-              합리적인 거래 구조를 제공합니다.
+              화장품 핵심 펩타이드 원료는 그동안 중국·미국·유럽으로부터의 수입
+              의존도가 높았습니다. 신규 화합물 합성·최적화 연구, 고난도 유기
+              합성, 고객사 사업 니즈를 반영한 맞춤 서비스까지 — 연구 중심의
+              파트너로서 안정적인 공급망과 합리적인 거래 구조를 제공합니다.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">

@@ -44,10 +44,10 @@ const metrics: Metric[] = [
     note: "순도 보장제 · COA",
   },
   {
-    target: 7,
+    target: 0,
     suffix: "일",
-    label: "의뢰 후 빠른 납품 목표",
-    note: "국내 합성 · 통관 없음",
+    label: "통관 리드타임 없음",
+    note: "국내 합성 · 빠른 납품",
   },
   {
     target: 50,
@@ -67,7 +67,9 @@ function useRepeatingCountUp(
   delayMs = 0,
   reduceMotion = false,
 ) {
-  const [value, setValue] = useState(reduceMotion ? target : 0);
+  // 서버 렌더·첫 페인트에는 항상 최종값을 노출 (크롤러·JS 비활성 대응).
+  // 뷰포트 진입 후에만 0 → target 카운트업 애니메이션을 시작한다.
+  const [value, setValue] = useState(target);
   const rafRef = useRef(0);
   const cycleRef = useRef(0);
   const delayRef = useRef(0);
