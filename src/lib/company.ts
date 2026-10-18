@@ -45,4 +45,18 @@ export const siteSeo = {
   openGraphDescription:
     "위드바이오캠 — 화장품 펩타이드 원료 · 펩타이드 제조 · 맞춤 합성. 고순도 LPPS, COA 제공, B2B 안정 공급.",
   locale: "ko_KR",
+  /** 공유 미리보기 이미지 (1200x630) — og:image / twitter:image 공통 */
+  ogImage: "/og/og-ko.png",
 } as const;
+
+/** openGraph.images / twitter.images에 그대로 넣는 공유 이미지 헬퍼 */
+export function ogImages(alt: string) {
+  return [
+    {
+      url: siteSeo.ogImage,
+      width: 1200,
+      height: 630,
+      alt,
+    },
+  ];
+}

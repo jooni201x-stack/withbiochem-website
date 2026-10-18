@@ -4,35 +4,31 @@ import { getAllProductSlugs } from "@/lib/products";
 
 const BASE = siteSeo.siteUrl; // https://www.withbiochem.com
 
-/** 홈 페이지 내 주요 섹션 (단일 페이지 앵커) */
-const homeSections = [
-  { path: "/#about", priority: 0.8 },
-  { path: "/#business", priority: 0.7 },
-  { path: "/#technology", priority: 0.8 },
-  { path: "/#products", priority: 0.9 },
-  { path: "/#process", priority: 0.7 },
-  { path: "/#strengths", priority: 0.7 },
-  { path: "/#contact", priority: 0.8 },
-  { path: "/#partnership", priority: 0.6 },
-] as const;
+/**
+ * 실제 페이지만 등록합니다. #fragment 앵커는 구글이 별도 페이지로
+ * 보지 않으므로 sitemap에 넣지 않습니다 (SEO 가이드 참고).
+ */
+const staticPages = [
+  { path: "/", priority: 1, changeFrequency: "weekly" as const },
+  { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/technology", priority: 0.8, changeFrequency: "monthly" as const },
+  {
+    path: "/click-chemistry",
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  },
+  { path: "/products", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/guarantee", priority: 0.8, changeFrequency: "monthly" as const },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const home: MetadataRoute.Sitemap = [
-    {
-      url: `${BASE}/`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
-
-  const sections: MetadataRoute.Sitemap = homeSections.map((s) => ({
-    url: `${BASE}${s.path}`,
+  const pages: MetadataRoute.Sitemap = staticPages.map((p) => ({
+    url: `${BASE}${p.path}`,
     lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: s.priority,
+    changeFrequency: p.changeFrequency,
+    priority: p.priority,
   }));
 
   const productPages: MetadataRoute.Sitemap = getAllProductSlugs().map(
@@ -45,5 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
-  return [...home, ...sections, ...productPages];
+  return [...pages, ...productPages];
 }

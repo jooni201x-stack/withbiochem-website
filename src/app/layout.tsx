@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { companyInfo, siteSeo } from "@/lib/company";
 import FloatingContactButton from "@/components/FloatingContactButton";
+import { organizationLd, websiteLd } from "@/lib/jsonld";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,11 +36,20 @@ export const metadata: Metadata = {
     title: siteSeo.openGraphTitle,
     description: siteSeo.openGraphDescription,
     url: siteSeo.siteUrl,
+    images: [
+      {
+        url: "/og/og-ko.png",
+        width: 1200,
+        height: 630,
+        alt: siteSeo.openGraphTitle,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteSeo.openGraphTitle,
     description: siteSeo.openGraphDescription,
+    images: ["/og/og-ko.png"],
   },
   robots: {
     index: true,
@@ -66,6 +76,16 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationLd()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd()) }}
+        />
         {children}
         <FloatingContactButton />
       </body>
