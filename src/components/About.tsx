@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Heart, GraduationCap, Lightbulb, Cpu } from "lucide-react";
 import SectionHeading from "./SectionHeading";
-import { siteImages } from "@/lib/images";
+import { siteImages, partnerLogoSrc } from "@/lib/images";
 
 const identities = [
   {
@@ -160,6 +160,49 @@ export default function About() {
             ))}
           </motion.div>
         </div>
+
+        {/* 고려대 PhD 블록 */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+          className="mt-14 overflow-hidden rounded-2xl border border-border bg-slate-50/60 shadow-sm sm:mt-16"
+        >
+          <div className="grid gap-0 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]">
+            <div className="relative aspect-[4/3] sm:aspect-auto sm:min-h-[260px]">
+              <Image
+                src={siteImages.aboutKuResearchers}
+                alt="고려대학교 PhD급 연구진"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 40vw"
+              />
+            </div>
+            <div className="flex flex-col justify-center p-6 sm:p-8">
+              <p className="text-xs font-semibold tracking-widest text-blue">
+                B2B TECHNICAL SUPPORT
+              </p>
+              <h3 className="product-name mt-2 text-xl font-bold leading-snug text-navy sm:text-2xl">
+                고려대학교 PhD급 연구진이
+                <br />
+                직접 함께 합니다
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500 sm:text-base">
+                합성 설계부터 규격 협의, 배합 가이드까지 — 단순 원료 공급을
+                넘어 고객사의 여정에 함께 합니다.
+              </p>
+              <Image
+                src={partnerLogoSrc("korea-chem.png")}
+                alt="고려대학교 이과대학 화학과"
+                width={180}
+                height={42}
+                className="mt-5 h-8 w-auto object-contain object-left opacity-90"
+                unoptimized
+              />
+            </div>
+          </div>
+        </motion.div>
 
         {/* Image gallery */}
         <motion.div

@@ -26,6 +26,17 @@ export const siteImages = {
   aboutGallery3: `${IMG}/about/gallery-3.jpg`,
   aboutGallery4: `${IMG}/about/gallery-4.jpg`,
 
+  /** 연구소 와이드 (브로셔 1016판 p03 추출, 저해상도) — about/lab-wide-extracted.webp */
+  aboutLabWide: `${IMG}/about/lab-wide-extracted.webp`,
+  /** 고려대 가운 연구진 2인 (브로셔 1016판 p03 추출, 저해상도 · AI 생성 이미지) — about/ku-researchers-extracted.webp */
+  aboutKuResearchers: `${IMG}/about/ku-researchers-extracted.webp`,
+
+  /** 연구 시설 · 인프라 (브로셔 1016판 p04 추출, 저해상도) — facility/*-extracted.webp */
+  facilitySynthesisLab: `${IMG}/facility/synthesis-lab-extracted.webp`,
+  facilityReactionLab: `${IMG}/facility/reaction-lab-extracted.webp`,
+  facilityHeadquarters: `${IMG}/facility/headquarters-extracted.webp`,
+  facilityWaste: `${IMG}/facility/waste-extracted.webp`,
+
   /** 제품 / 서비스 — service/product-1~5.jpg */
   product01: `${IMG}/service/product-1.jpg`,
   product02: `${IMG}/service/product-2.jpg`,

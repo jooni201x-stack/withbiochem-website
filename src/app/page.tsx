@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import WhyUs from "@/components/WhyUs";
 import Guarantee from "@/components/Guarantee";
 import About from "@/components/About";
+import Facility from "@/components/Facility";
 import BusinessAreas from "@/components/BusinessAreas";
 import Technology from "@/components/Technology";
 import Products from "@/components/Products";
@@ -41,6 +42,7 @@ export default function Home() {
         <WhyUs />
         <Guarantee />
         <About />
+        <Facility />
         <BusinessAreas />
         <Technology />
         <Products />
